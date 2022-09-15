@@ -1,0 +1,71 @@
+
+  <div class="row" style="padding-left:20px ;">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light col-md-12 col-ms-12 container-fluid">
+    <div class="col-md-1 col-ms-12">
+     <a class="navbar-brand" href="#">
+       <img src="assets/images/leanPartners-logo.jpg" 
+        style="height:80%; width:80% ; margin:10%;"></a>
+     </div> 
+ 
+     <div class="nav navbar-nav col-md-5 col-ms-12 " id="navbarSupportedContent">
+        
+       <ul class="navbar-nav mr-auto">
+         <li class="nav-item active">
+           <a routerLink="/" class="nav-link" style="cursor:pointer;">Home</a>
+         </li>
+
+
+     
+
+
+
+         <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Courses
+           </a>
+           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+             <li><a routerLink="/manufacturing" class="dropdown-item"  style="cursor:pointer;"> Manufacturing</a></li>
+             <li><a routerLink="/quality" class="dropdown-item"  style="cursor:pointer;">Quality</a></li>
+             <li><a routerLink="/environment" class="dropdown-item"  style="cursor:pointer;">Environment</a></li>
+             <li><a routerLink="/supply" class="dropdown-item"  style="cursor:pointer;">Supply Chain</a></li>
+             <li><a routerLink="/leadership" class="dropdown-item" style="cursor:pointer;">Leadership</a></li>
+             <li><a routerLink="/innovation" class="dropdown-item"  style="cursor:pointer;">Innovation</a></li>
+           </ul>
+         </li>
+
+        
+         <li class="nav-item active">
+             <a routerLink="/contact" class="nav-link" style="cursor:pointer;">Contact</a>
+           </li>
+           <li class="nav-item active">
+             <a routerLink="/about" class="nav-link"  style="cursor:pointer;">About us</a>
+           </li>
+       </ul>
+  
+     </div>
+     
+     <div class="col-md-3 col-ms-12" style="margin-left:200px ;padding-left:100px;" >
+         <div class="input-group">
+             <div class="form-outline-light">
+               <input id="search-input" type="search" id="form1" class="form-control" placeholder="Search"/>
+              
+             </div>
+             <button id="search-button" type="button" class="btn btn-outline-light" style="background-color:rgba(157, 157, 109, 0.725) ; color: black;">
+                <i class="fa fa-search"></i>
+             </button>
+           </div>
+           
+     </div>
+ 
+ 
+     <div class="col-md-2 col-ms-12" style="padding-right: 50px;" >
+       <a href="/loginuser"><button type="button" class="btn btn-outline" style="background-color:rgba(157, 157, 109, 0.725) ; 
+       color: black;font-weight: 600;margin-left: 20%;"> Sign in </button></a>
+   </div>
+ 
+   
+
+  </nav>
+    </div>
+<router-outlet></router-outlet>

@@ -1,0 +1,205 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+            href="https://datatables.net">official DataTables documentation</a>.</p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">All Students</h6>
+        </div>
+        <div class="card-body">
+            <a routerLink="/admin/addstudent" class="btn btn-outline" style=" float:right; background-color:rgba(157, 157, 109, 0.725) ; 
+            color: black; margin-top: 10px;font-weight: 600;">Add Student</a>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>Age</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+              
+                    <tbody>
+                        <tr *ngFor="let item of dataArray; index as i">
+                            <td>{{item.firstname}}</td>
+                            <td>{{item.lastname}}</td>
+                            <td>{{item.age}}</td>
+                            <td>{{item.phone}}</td>
+                            <td>{{item.email}}</td>
+                            <td>
+                                <button class="btn btn-info" (click)="getdata(item.firstname,item.lastname,item.age,item.phone,item.email,item._id)" data-toggle="modal" data-target="#exampleModal">Update</button>
+                                <button class="btn btn-danger" (click)="details(item._id)">Details</button>
+								<button class="btn btn-danger" (click)="delete(item._id,i)">Delete</button>
+                           
+							</td>
+                        </tr>
+                      
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!--form update-->
+
+          
+			<form #f="ngForm" (ngSubmit)="updatenewstudent(f)" >
+
+			
+
+				<mat-form-field class="full-width" style="display: inline;">
+				<mat-label>First Name</mat-label>
+				<input
+				required
+				name="firstname"
+                [(ngModel)]="dataStudent.firstname"
+				matInput
+				placeholder="Enter here"
+				#firstname="ngModel"
+				ngModel
+				minlength="2"
+				maxlength="20"
+				/>
+				</mat-form-field>
+
+				<div class="alert alert-danger" *ngIf="firstname.errors?.['required'] && firstname.touched">
+					First Name is required
+				</div>
+
+			<div class="alert alert-danger" *ngIf="firstname.errors?.['minlength'] && firstname.touched">
+				First Name must be minimum 2 caractere
+				</div>
+		
+				<mat-form-field class="full-width" style="display: inline;">
+				<mat-label>Last Name</mat-label>
+				<input
+				required
+				name="lastname"
+                [(ngModel)]="dataStudent.lastname"
+				matInput
+				placeholder="Enter here"
+				#lastname="ngModel"
+				ngModel
+				minlength="2"
+				maxlength="20"
+				/>
+				</mat-form-field>
+
+
+				<div class="alert alert-danger" *ngIf="lastname.errors?.['required'] && lastname.touched">
+					Last Name is required
+				</div>
+				<div class="alert alert-danger" *ngIf="lastname.errors?.['minlength'] && lastname.touched">
+					Last Name must be minimum 2 caractere
+					</div>
+					
+			
+				<mat-form-field class="full-width" style="display: inline;" >
+				<mat-label>Email </mat-label>
+				<input
+				email
+				required
+				name="email"
+				type="email"
+                [(ngModel)]="dataStudent.email"
+				matInput
+				placeholder="Enter here"
+				#email="ngModel"
+				ngModel
+				/>
+				</mat-form-field>	
+				
+				<div class="alert alert-danger" *ngIf="email.errors?.['email'] && email.touched">
+					the input must be email not string
+				</div>
+
+				<mat-form-field class="full-width" style="display: inline;" >
+				<mat-label>Age</mat-label>
+				<input
+				required
+				name="age"
+				type="number"
+                [(ngModel)]="dataStudent.age"
+				matInput
+				placeholder="Enter here"
+				#age="ngModel"
+				ngModel/>
+				</mat-form-field>
+				<div class="alert alert-danger" *ngIf="age.errors?.['required'] && age.touched">
+					Age is required
+				</div>
+
+				<mat-form-field class="full-width" style="display: inline;" >
+				<mat-label>Phone Number</mat-label>
+				<input
+				required
+				name="phone"
+				type="number"
+                [(ngModel)]="dataStudent.phone"
+				matInput
+				placeholder="Enter here"
+				#phone="ngModel"
+				ngModel/>
+				</mat-form-field>
+				<div class="alert alert-danger" *ngIf="phone.errors?.['required'] && phone.touched">
+					Phone is required
+				</div>
+			
+
+                <div class="alert alert-success" *ngIf="messageSuccess">
+                {{messageSuccess}}
+                </div>
+
+				<div class="form-group">        
+				  <div class="col-sm-offset-2 col-sm-10">
+                    <button  class="btn btn-outline" 
+					[disabled]="f.invalid"
+					style="background-color:rgba(157, 157, 109, 0.725) ; 
+                    color: black; margin-top: 10px;font-weight: 600;">Update Student</button>
+				  </div>
+				</div>
+			</form>
+		
+	
+          <!--form update end-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

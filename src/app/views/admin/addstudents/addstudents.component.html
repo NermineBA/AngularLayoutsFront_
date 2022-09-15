@@ -1,0 +1,124 @@
+
+<div class="container-fluid Contact" style="padding:40px;background: rgba(236, 226, 226, 0.53); ">
+
+	<div class="row" style="width: 70%;margin-left: 16%;">
+		
+		<div class="col-md-9">
+          
+
+
+			<form #f="ngForm" (ngSubmit)="add(f)">
+
+			
+
+				<mat-form-field class="full-width" style="display: inline;">
+				<mat-label>First Name</mat-label>
+				<input
+				required
+				name="firstname"
+				matInput
+				placeholder="Enter here"
+				#firstname="ngModel"
+				ngModel
+				minlength="2"
+				maxlength="20"
+				/>
+				</mat-form-field>
+
+				<div class="alert alert-danger" *ngIf="firstname.errors?.['required'] && firstname.touched">
+					First Name is required
+				</div>
+
+			<div class="alert alert-danger" *ngIf="firstname.errors?.['minlength'] && firstname.touched">
+				First Name must be minimum 2 caractere
+				</div>
+		
+				<mat-form-field class="full-width" style="display: inline;">
+				<mat-label>Last Name</mat-label>
+				<input
+				required
+				name="lastname"
+				matInput
+				placeholder="Enter here"
+				#lastname="ngModel"
+				ngModel
+				minlength="2"
+				maxlength="20"
+				/>
+				</mat-form-field>
+
+
+				<div class="alert alert-danger" *ngIf="lastname.errors?.['required'] && lastname.touched">
+					Last Name is required
+				</div>
+				<div class="alert alert-danger" *ngIf="lastname.errors?.['minlength'] && lastname.touched">
+					Last Name must be minimum 2 caractere
+					</div>
+					
+			
+				<mat-form-field class="full-width" style="display: inline;" >
+				<mat-label>Email </mat-label>
+				<input
+				email
+				required
+				name="email"
+				type="email"
+				matInput
+				placeholder="Enter here"
+				#email="ngModel"
+				ngModel
+				/>
+				</mat-form-field>	
+				
+				<div class="alert alert-danger" *ngIf="email.errors?.['email'] && email.touched">
+					the input must be email not string
+				</div>
+
+				<mat-form-field class="full-width" style="display: inline;" >
+				<mat-label>Age</mat-label>
+				<input
+				required
+				name="age"
+				type="number"
+				matInput
+				placeholder="Enter here"
+				#age="ngModel"
+				ngModel/>
+				</mat-form-field>
+				<div class="alert alert-danger" *ngIf="age.errors?.['required'] && age.touched">
+					Age is required
+				</div>
+
+				<mat-form-field class="full-width" style="display: inline;" >
+				<mat-label>Phone Number</mat-label>
+				<input
+				required
+				name="phone"
+				type="number"
+				matInput
+				placeholder="Enter here"
+				#phone="ngModel"
+				ngModel/>
+				</mat-form-field>
+				<div class="alert alert-danger" *ngIf="phone.errors?.['required'] && phone.touched">
+					Phone is required
+				</div>
+			
+	<div class="alert alert-danger" *ngIf="messageErr">
+		{{messageErr}}
+	</div>
+
+
+				<div class="form-group">        
+				  <div class="col-sm-offset-2 col-sm-10">
+                    <button  class="btn btn-outline" 
+					[disabled]="f.invalid"
+					style="background-color:rgba(157, 157, 109, 0.725) ; 
+                    color: black; margin-top: 10px;font-weight: 600;">Add Student</button>
+				  </div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+ 

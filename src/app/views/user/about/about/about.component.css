@@ -1,0 +1,39 @@
+.img{
+    width: 100%;
+    height: 100%;
+  
+}
+.row1{
+  margin-left: 25%;
+  margin-top: 18%;
+}
+.row2{
+    margin: 18%;
+   margin-top: 10%;
+}
+
+.container-fluid{
+
+    background: rgba(236, 226, 226, 0.53);
+}
+
+
+service {
+    display: flex;
+    padding: 30px;
+    background-color: #fff;
+ }
+ 
+ 
+ 
+ /* Rounded border */
+hr.rounded {
+    border-top: 8px solid #bbb;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+  }
+
+

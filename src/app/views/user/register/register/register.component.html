@@ -1,0 +1,100 @@
+
+<div class="container-fluid Contact" style="padding:40px;background: rgba(236, 226, 226, 0.53); ">
+	<!--
+{{user|json}}
+	-->
+	<div class="row" style="width: 70%;margin-left: 16%;">
+		<div class="col-md-3">
+			<div class="contact-info" style="padding-top: 50%; padding-left: 10%;">
+				<i class="fas fa-user-plus fa-6x" style="color: white;"></i>
+				<h1 style="font:40px Marcellus ;font-weight: 700;">Sign up</h1>
+				<h4>Enter your personal details and start journey with us</h4>
+			</div>
+		</div>
+		<div class="col-md-9">
+            <h2>Create Account</h2>
+
+
+			<form >
+
+
+				<mat-form-field class="full-width"   style="display: inline;">
+					<mat-label>User Name</mat-label>
+					<input
+					required
+					
+					name="username"
+					matInput
+					placeholder="Enter here"
+					/>
+					<mat-hint>Username must be unique !!</mat-hint>
+					</mat-form-field>
+
+				<mat-form-field class="full-width" style="display: inline;">
+					<mat-label>User Password</mat-label>
+					<input
+					required
+					
+					name="password"
+					type="password"
+					matInput
+					placeholder="Enter here"/>
+					</mat-form-field>
+
+
+					<mat-form-field class="full-width" style="display: inline;">
+						<mat-label>First Name</mat-label>
+						<input
+						required
+						
+						name="firstName"
+						matInput
+						placeholder="Enter here"
+						/>
+						</mat-form-field>
+
+						<mat-form-field class="full-width" style="display: inline;">
+							<mat-label>Last Name</mat-label>
+							<input
+							required
+							
+							name="lastName"
+							matInput
+							placeholder="Enter here"
+							/>
+							</mat-form-field>
+
+
+								<mat-form-field class="full-width" style="display: inline;" >
+									<mat-label>Email Address</mat-label>
+									<input
+									required
+								
+									name="email"
+									type="email"
+									matInput
+									placeholder="Enter here"/>
+									</mat-form-field>		
+
+									<mat-form-field class="full-width" style="display: inline;" >
+										<mat-label>Phone Number</mat-label>
+										<input
+										required
+										
+										name="phone"
+										type="number"
+										matInput
+										placeholder="Enter here"/>
+										</mat-form-field>
+		
+				<div class="form-group">        
+				  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-outline" style="background-color:rgba(157, 157, 109, 0.725) ; 
+                    color: black; margin-top: 10px;font-weight: 600;">Sign up</button>
+				  </div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+ 

@@ -1,0 +1,25 @@
+.card {
+    display: flex;
+    align-self: normal;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width:100%;
+    max-height: 50%;
+    margin:5%;
+  }
+.card:hover {box-shadow : 5px 5px 10px -4px #000 ; }
+
+.card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.card-title {
+  height:64px;
+ max-height: 100px
+}
+
+.card-footer{margin-top:10%}
